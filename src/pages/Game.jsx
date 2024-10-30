@@ -1,5 +1,6 @@
 import { AppContext } from "../App";
 import React, { useContext, useState } from "react";
+import { randomNumber } from "../components/randomNumber";
 import Question from "../components/Question";
 import AnswerChoices from "../components/AnswerChoices";
 import Message from "../components/Message";
@@ -8,7 +9,7 @@ const Game = () =>{
     const {questions} = useContext(AppContext);
 
     const [answeredQuestions, setAnsweredQuestions] = useState([]);
-    const [questionIndex, setQuestionIndex] = useState(0);
+    const [questionIndex, setQuestionIndex] = useState(randomNumber(questions, answeredQuestions));
     const [userAnswer, setUserAnswer] = useState("");
     const [message, setMessage] = useState("");
     const [isNextBtnHidden, setIsNextBtnHidden] = useState(true);
