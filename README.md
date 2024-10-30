@@ -3,17 +3,20 @@
 This is a trivia game application built as part of the Chingu Project.  The app allows users to answer trivia questions, and display game results.  It is build with React, styled with Sass, and it is a monorepo.
 
 ## Features
-- Header: User is able to navigate two pages, questions where they can see all the questions and the practice test. 
-- Created a function where it randominize questions
-- Stores questions id.
-- User is able to see if they have answered correctly after submitting it.
-- User is able to see all the questions they have answered
-- A simple header, user is able to navigate through questions and quiz
+- **Navigation**: Users can navigate between the question list and the practice test.
+- **Randomized Questions**: Each question is randomized for a unique experience.
+- **Answer Feedback**: Users can see if their answer is correct or incorrect.
+- **Sequential Questioning**: Users must answer each question before moving to the next.
+- **Results Page**: Displays user results after completing the test.
 
 ## Tech Stack
-- Frontend: React and Sass
+- React and Sass
+
+## Live Demo 
+Check out the live version of the app [here](https://trivia-app-production.up.railway.app)
 
 ### Installation
+To set up the project locally.
 1. Clone the repository:
 ``` git clone git@github.com:xsymmetry9/trivia-test.git
     cd frontend
@@ -23,7 +26,7 @@ This is a trivia game application built as part of the Chingu Project.  The app 
 ``` 
     npm install 
 ```
-3. Run the App:
+3. Start the development server
 ```
     npm run start
 ```
