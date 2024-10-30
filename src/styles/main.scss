@@ -1,97 +1,76 @@
+@import 'variables';
 
-    // Color Variables
-    $primary-color: #3498db;       // Main color for buttons, links, etc.
-    $secondary-color: #2ecc71;     // Accent color for highlights
-    $background-color: #f5f5f5;    // General background color
-    $text-color: #333333;          // Main text color
-    $heading-color: #2c3e50;       // Headings color
-    $border-color: #dcdcdc;        // General border color
+//Global Reset and Base Reset
 
-    $font-stack: 'Helvetica Neue', Arial, sans-serif;  // Default font stack
-    $heading-font: 'Roboto', sans-serif;               // Font for headings
-
-    // Typography Variables
-    $base-font-size: 16px;        // Base font size
-    $heading-font-size: 2em;      // Font size for main headings
-    $subheading-font-size: 1.5em; // Font size for subheadings
-    $small-font-size: 0.875em;    // Font size for smaller text
-
-    $font-weight-normal: 400;     // Normal font weight
-    $font-weight-bold: 700;       // Bold font weight
-
-    // Spacing variables
-    $spacing-small: 8px;
-    $spacing-medium: 16px;
-    $spacing-large: 24px;
-
-    $margin-small: 8px;
-    $margin-medium: 16px;
-    $margin-large: 24px;
-
-    $border-radius: 4px;
-
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.text-center{
-    text-align: center;
-}
-
-.padding-small{
-    padding: $spacing-small;
-}
-.padding-medium{
-    padding: $spacing-medium;
-}
-.padding-large{
-    padding: $spacing-large;
-}
-
-.padding-bottom-large{
-    padding: $spacing-large;
-}
-
-.text-bold{
-    font-weight: 600;
-}
-
-body{
+body {
     background-color: $background-color;
     font-family: $font-stack;
-
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6 {
     color: $heading-color;
 }
 
-header{
+//Utility Classes
+
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: 600;
+}
+
+.font-uppercase {
+    text-transform: uppercase;
+}
+
+.padding-small {
+    padding: $spacing-small;
+}
+
+.padding-medium {
+    padding: $spacing-medium;
+}
+
+.padding-large {
+    padding: $spacing-large;
+}
+
+.padding-bottom-large {
+    padding: $spacing-large;
+}
+
+//Layout and Structure
+
+.root-start {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "game game game"
+        "footer footer footer";
+    grid-template-rows: 100px auto 50px;
+}
+
+header {
     grid-area: header;
     border-bottom: 1px solid $border-color;
 }
 
-footer{
+footer {
     grid-area: footer;
     border-top: 1px solid $border-color;
 }
-.root-start
-{
-    width: 100%;
-    height: 100vh;
 
-    display: grid;
-    grid-template-areas:
-    "header header header"
-    "game game game"
-    "footer footer footer";
-    grid-template-rows: 100px auto 50px;
-    
-}
-
-.content{
+.content {
     grid-area: game;
     align-self: center;
     max-width: 1100px;
@@ -99,146 +78,65 @@ footer{
     margin-inline: auto;
 }
 
-.header-root{
+.header-root {
     max-width: 1100px;
     width: 100%;
-    margin-inline: auto;
     height: 100%;
+    margin-inline: auto;
     overflow: hidden;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.title-logo{
-    padding: 0 $spacing-small;
+.footer-root {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.nav-bar-root{
+//Navigation
+
+.nav-bar-root {
     border: none;
 }
 
-.nav-bar-container{
+.nav-bar-container {
     list-style-type: none;
     display: flex;
     gap: $spacing-medium;
     padding-right: $spacing-small;
-    a{
+
+    a {
         text-decoration: none;
         font-weight: $font-weight-bold;
         font-size: $small-font-size;
         color: $text-color;
         padding: 10px 0;
-        &:hover, &:focus{
+
+        &:hover, &:focus {
             color: $primary-color;
             border-bottom: 3px solid $primary-color;
         }
     }
 }
 
-.footer-root{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.game-card{
-    box-shadow: 1px 1px 1px 2px rgb(171, 182, 171);
-    border-radius: $border-radius;
-    padding: $spacing-large;
-
-    width: 100%;
-    max-width: 500px;
-
-    margin-inline: auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-large;
-
-}
-
-.game-container{
-    padding: $spacing-medium;
-}
-
-.questions-container{
-    list-style-type: none;
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 100px;
-    column-gap: $spacing-small;
-    row-gap: $spacing-small;
-
-    button{
-        width: 100%;
-        height: 100%;
-    }
-}
-
-
-button, input[type="submit"]{
-    cursor: pointer;
-    border-radius: $border-radius;
-}
-
-.btn-game{
-    width: 100%;
-    padding: $spacing-small $spacing-medium;
-    border: none;
-    color: #f5f5f5;
-    font-weight: 600;
-    font-size: $small-font-size;
-}
-input[type="submit"].submit, input[type = "submit"].restart{
-    background-color: green;
-    &:hover, &:focus{
-        background-color: rgba(0, 122, 0, 0.3);
-    }
-}
-button.submit, button.restart{
-  background-color: green;
-}
-button.next{
-    background-color: blue;
-}
-button.submit:hover, button.submit:focus{
-    scale: 101%;
-}
-button.disable, button.disable:hover, button.disable:focus{
-    background-color: gray;
-    cursor: default;
-}
-
-button.selected{
-    background-color: $primary-color;
-    border: none;
-    color: white;
-}
-button.hidden, input[type="submit"].hidden{
-    display: none;
-}
-.question-root{
-    max-width: 500px;
-    width: 100%;
-    margin-inline: auto;
-}
-
-.nav-btns-container{
+.nav-btns-container {
     display: flex;
     gap: $spacing-medium;
     justify-content: center;
-    button{
+
+    button {
         padding: $spacing-small $spacing-medium;
     }
+
     #btn-next:hover, #btn-next:focus,
-    #btn-prev:hover, #btn-prev:focus{
+    #btn-prev:hover, #btn-prev:focus {
         scale: 1.05;
     }
-    #btn-prev, #btn-next{
+
+    #btn-prev, #btn-next {
         background-color: #fff;
         color: $text-color;
         font-weight: $font-weight-bold;
@@ -249,37 +147,137 @@ button.hidden, input[type="submit"].hidden{
         box-shadow: 1px 1px 2px 1px rgb(0, 0, 0, .3);
     }
 }
-.display-questions-container{
-    list-style: none;
-    display: grid;
-    gap: $spacing-small;
-    li{
-        .answers-section{
-            margin-top: $spacing-small;
-            display: flex;
-            justify-content: space-between;
 
-            span{
-                &.correct{
-                    color: green;
-                }
-                &.wrong{
-                    color: red;
-                }
-            }
-       
-        }
+//Buttons
 
+button, input[type="submit"] {
+    cursor: pointer;
+    border-radius: $border-radius;
+}
+
+.btn-game {
+    width: 100%;
+    padding: $spacing-small $spacing-medium;
+    border: none;
+    color: #f5f5f5;
+    font-weight: 600;
+    font-size: $small-font-size;
+}
+
+button.btn-bg-primary-color {
+    background-color: $primary-color;
+
+    &:focus, &:hover {
+        background-color: #3498db4c;
     }
 }
 
-.btn-choices{
+button.submit, button.restart {
+    background-color: green;
+
+    &:hover, &:focus {
+        background-color: rgba(0, 122, 0, 0.3);
+    }
+}
+
+button.next {
+    background-color: blue;
+}
+
+button.submit:hover, button.submit:focus {
+    scale: 101%;
+}
+
+button.disable, button.disable:hover, button.disable:focus {
+    background-color: gray;
+    cursor: default;
+}
+
+button.selected {
+    background-color: $primary-color;
+    border: none;
+    color: white;
+}
+
+button.hidden, input[type="submit"].hidden {
+    display: none;
+}
+
+.btn-choices {
     background-color: rgb(226, 226, 233);
     color: $text-color;
     border: none;
     font-size: $base-font-size;
     padding: 10px;
-    &:hover, &:focus{
+
+    &:hover, &:focus {
         border: 2px solid $primary-color;
     }
 }
+
+//Components
+
+.title-logo {
+    padding: 0 $spacing-small;
+}
+
+.game-card {
+    box-shadow: 1px 1px 1px 2px rgb(171, 182, 171);
+    border-radius: $border-radius;
+    padding: $spacing-large;
+    width: 100%;
+    max-width: 500px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-large;
+}
+
+.game-container {
+    padding: $spacing-medium;
+}
+
+.questions-container {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    column-gap: $spacing-small;
+    row-gap: $spacing-small;
+
+    button {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.question-root {
+    max-width: 500px;
+    width: 100%;
+    margin-inline: auto;
+}
+
+.display-questions-container {
+    list-style: none;
+    display: grid;
+    gap: $spacing-small;
+
+    li {
+        .answers-section {
+            margin-top: $spacing-small;
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                &.correct {
+                    color: green;
+                }
+                &.wrong {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+
