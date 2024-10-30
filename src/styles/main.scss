@@ -199,6 +199,9 @@ input[type="submit"].submit, input[type = "submit"].restart{
         background-color: rgba(0, 122, 0, 0.3);
     }
 }
+button.submit, button.restart{
+  background-color: green;
+}
 button.next{
     background-color: blue;
 }
